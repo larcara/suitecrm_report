@@ -1,0 +1,73 @@
+.row
+  .col
+    %hr
+.row
+  .col
+  .col
+    .h1=@account.name
+    .h6=@account.ownership
+  .col
+.row
+  .col
+    %hr
+
+.row
+  .col
+    =raw @account.address.join("<br>")
+  .col
+    =@account.phone_office
+  .col
+    =@account.phone_alternate
+.row
+  .col
+    .h5 note
+  .col
+    .well-small=@account.description 
+.row
+  .col Segnalatore/Agente:
+  .col
+    =@account.assigned_to.full_name
+  .col
+    %p=@account.assigned_to.phone_home
+    %p=@account.assigned_to.phone_mobile
+    %p=@account.assigned_to.phone_work    
+
+.row
+  .col
+    .h4 Contatti
+-@account.contacts.each do |c|
+  .row
+    .col
+      =c.full_name
+    .col
+      %p=c.phone_home
+      %p=c.phone_mobile
+      %p=c.phone_work    
+  .row
+    .col
+      =c.description
+
+.row
+  .col
+    .h4 Chiamate
+-@account.calls.each do |c|
+  .row
+    .col
+      =c.inspect
+
+.row
+  .col
+    .h4 Riunioni
+-@account.meetings.each do |m|
+  .row
+    .col
+      =m.inspect
+
+.row
+  .col
+    .h4 Opportunità
+-@account.opportunities.each do |o|
+  .row
+    .col
+      =o.inspect
+

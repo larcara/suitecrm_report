@@ -1,0 +1,4 @@
+%h1 Clienti
+-@accounts.each do |a|
+  %h2
+    =link_to(a.name, url_for(action: :scheda, id: a.id))

@@ -1,0 +1,3 @@
+class AccountOpportunity < SuitecrmRecord
+    self.table_name = "accounts_opportunities"
+end
