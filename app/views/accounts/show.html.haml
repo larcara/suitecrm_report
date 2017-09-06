@@ -1,73 +1,150 @@
 .row
-  .col
+  .col-md-2
+    =link_to_if(@account.prev,"prev", account_path(@account.prev))
+  .col-md-8
+  .col-md-2
+    =link_to_if(@account.next,"next", account_path(@account.next))
+.row
+  .col-md-12
     %hr
 .row
-  .col
-  .col
+  .col-md-2
+  .col-md-8
     .h1=@account.name
     .h6=@account.ownership
-  .col
+  .col-md-2
+    =link_to("Stampa", account_path(@account, format: :pdf), {target: :blank, class: "button"})
 .row
-  .col
+  .col-md-12
     %hr
 
 .row
-  .col
+  .col-md-4
     =raw @account.address.join("<br>")
-  .col
+  .col-md-4
     =@account.phone_office
-  .col
+  .col-md-4
     =@account.phone_alternate
 .row
-  .col
+  .col-md-2
     .h5 note
-  .col
+  .col-md-10
     .well-small=@account.description 
 .row
-  .col Segnalatore/Agente:
-  .col
+  .col-md-2 Segnalatore/Agente:
+  .col-md-4
     =@account.assigned_to.full_name
-  .col
+  .col-md-4
     %p=@account.assigned_to.phone_home
     %p=@account.assigned_to.phone_mobile
     %p=@account.assigned_to.phone_work    
 
-.row
-  .col
-    .h4 Contatti
--@account.contacts.each do |c|
-  .row
-    .col
-      =c.full_name
-    .col
-      %p=c.phone_home
-      %p=c.phone_mobile
-      %p=c.phone_work    
-  .row
-    .col
-      =c.description
 
-.row
-  .col
-    .h4 Chiamate
--@account.calls.each do |c|
+-if @account.contacts.empty?
   .row
-    .col
-      =c.inspect
+    .col-md-12.text-danger
+      NESSUNA CONTATTO REGISTRATO
+-else
+  .row
+    .col-md-12
+      .h4 Contatti
+  %table.table.table-bordered
+    %tr.info
+      %th="Nome"
+      %th="Telefoni"
+      %th="Note"
+    -@account.contacts.each do |c|
+      %tr.info
+        %td
+          =c.full_name
+        %td
+          %p=c.phone_home
+          %p=c.phone_mobile
+          %p=c.phone_work 
+        %td
+          =c.description
 
-.row
-  .col
-    .h4 Riunioni
--@account.meetings.each do |m|
+  
+-if @account.calls.empty?
   .row
-    .col
-      =m.inspect
-
-.row
-  .col
-    .h4 Opportunità
--@account.opportunities.each do |o|
+    .col-md-12.text-danger
+      NESSUNA CHIAMATA REGISTRATA
+-else
   .row
-    .col
-      =o.inspect
+    .col-md-12
+      .h4.bg-info Chiamate
+  %table.table.table-bordered
+    %tr.info
+      %th="Data"
+      %th="Descrizione"
+      %th="Stato"
+      %th="Assegnata"
+    -@account.calls.each do |c|
+      %tr.info
+        %td
+          =c.date_start.strftime("%d/%m/%Y")
+        %td
+          =c.name
+        %td
+          =c.status
+        %td
+          =c.assigned_to.full_name
+      %tr.info
+        %td
+        %td{colspan:3}
+          =c.description 
+               
+-if @account.meetings.empty?
+  .row
+    .col-md-12.text-danger
+      NESSUNA RIUNIONE REGISTRATA
+-else
+  .row
+    .col-md-12
+      .h4.bg-success Riunioni
+  %table.table.table-bordered
+    %tr.success
+      %th="Data"
+      %th="Descrizione"
+      %th="Stato"
+      %th="Assegnata"
+    -@account.meetings.each do |c|
+      %tr.success
+        %td
+          =c.date_start.strftime("%d/%m/%Y %H:%n")
+        %td
+          =c.name
+        %td
+          =c.status
+        %td
+          =c.assigned_to.full_name
+  
+                
+-if @account.opportunities.empty?
+  .row
+    .col-md-12.text-danger
+      NESSUNA TRATTATIVA REGISTRATA
+-else
+  .row
+    .col-md-12
+      .h4.bg-warning Trattative
+  %table.table.table-bordered
+    %tr.warning
+      %th="Data"
+      %th="Descrizione"
+      %th="Stato"
+      %th="Fonte"
+      %th="Assegnata"
+    -@account.opportunities.each do |c|
+      %tr.warning
+        %td
+          =c.date_closed.strftime("%d/%m/%Y")
+        %td
+          =c.name
+        %td
+          =c.sales_stage
+        %td
+          =c.lead_source
+        %td
+          =c.assigned_to.full_name
 
