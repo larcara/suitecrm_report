@@ -24,12 +24,13 @@
     .well-small=@account.description 
 .row
   .col-md-2 Segnalatore/Agente:
-  .col-md-4
-    =@account.assigned_to.full_name
-  .col-md-4
-    %p=@account.assigned_to.phone_home
-    %p=@account.assigned_to.phone_mobile
-    %p=@account.assigned_to.phone_work    
+  - if @account.assigned_to
+    .col-md-4
+      =@account.assigned_to.full_name
+    .col-md-4
+      %p=@account.assigned_to.phone_home
+      %p=@account.assigned_to.phone_mobile
+      %p=@account.assigned_to.phone_work    
 
 
 -if @account.contacts.empty?
