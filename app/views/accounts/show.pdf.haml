@@ -36,7 +36,6 @@
 -if @account.contacts.empty?
   .row
     .col-md-12.text-danger
-      NESSUNA CONTATTO REGISTRATO
 -else
   .row
     .col-md-12
@@ -57,60 +56,4 @@
         %td
           =c.description
 
-  
--if @account.calls.empty?
-  .row
-    .col-md-12.text-danger
-      NESSUNA CHIAMATA REGISTRATA
--else
-  .row
-    .col-md-12
-      .h4.bg-info Chiamate
-  %table.table.table-bordered.table-condensed
-    %tr.info
-      %th="Data"
-      %th="Descrizione"
-      %th="Stato"
-      %th="Assegnata"
-    -@account.calls.each do |c|
-      %tr.info
-        %td
-          =c.date_start.strftime("%d/%m/%Y")
-        %td
-          =c.name
-        %td
-          =c.status
-        %td
-          =c.assigned_to.full_name
-      %tr.info
-        %td
-        %td{colspan:3}
-          =c.description 
-               
--if @account.meetings.empty?
-  .row
-    .col-md-12.text-danger
-      NESSUNA RIUNIONE REGISTRATA
--else
-  .row
-    .col-md-12
-      .h4.bg-success Riunioni
-  %table.table.table-bordered.table-condensed
-    %tr.success
-      %th="Data"
-      %th="Descrizione"
-      %th="Stato"
-      %th="Assegnata"
-    -@account.meetings.each do |c|
-      %tr.success
-        %td
-          =c.date_start.strftime("%d/%m/%Y %H:%n")
-        %td
-          =c.name
-        %td
-          =c.status
-        %td
-          =c.assigned_to.full_name
-  
-                
 

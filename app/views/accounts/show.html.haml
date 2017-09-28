@@ -44,7 +44,6 @@
 -if @account.contacts.empty?
   .row
     .col-md-12.text-danger
-      NESSUNA CONTATTO REGISTRATO
 -else
   .row
     .col-md-12
@@ -69,7 +68,6 @@
 -if @account.calls.empty?
   .row
     .col-md-12.text-danger
-      NESSUNA CHIAMATA REGISTRATA
 -else
   .row
     .col-md-12
@@ -98,7 +96,6 @@
 -if @account.meetings.empty?
   .row
     .col-md-12.text-danger
-      NESSUNA RIUNIONE REGISTRATA
 -else
   .row
     .col-md-12
@@ -124,11 +121,11 @@
 -if @account.opportunities.empty?
   .row
     .col-md-12.text-danger
-      NESSUNA TRATTATIVA REGISTRATA
+      
 -else
   .row
     .col-md-12
-      .h4.bg-warning Trattative
+      .h4.bg-warning Opportunità
   %table.table.table-bordered
     %tr.warning
       %th="Data"
