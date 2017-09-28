@@ -27,9 +27,9 @@
     =@account.phone_alternate
 .row
   .col-md-2
-    .h5 note
+    .h4 note
   .col-md-10
-    .well-small=@account.description 
+    =raw @account.description.gsub("/r/n","</br>")
 .row
   .col-md-2 Segnalatore/Agente:
   - if @account.assigned_to
