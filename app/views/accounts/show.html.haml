@@ -87,7 +87,7 @@
         %td
           =c.status
         %td
-          =c.assigned_to.full_name
+          =c.assigned_to.full_name if c.assigned_to
       %tr.info
         %td
         %td{colspan:3}
@@ -115,7 +115,7 @@
         %td
           =c.status
         %td
-          =c.assigned_to.full_name
+          =c.assigned_to.full_name if c.assigned_to
   
                 
 -if @account.opportunities.empty?
@@ -144,5 +144,5 @@
         %td
           =c.lead_source
         %td
-          =c.assigned_to.full_name
+          =c.assigned_to.full_name if c.assigned_to
 
