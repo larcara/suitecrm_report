@@ -18,12 +18,14 @@
   .col-md-4
     =@account.phone_alternate
 .row
-  .col-md-2
-    .h5 note
-  .col-md-10
-    .well-small=@account.description 
+  .col-md-12.bg-success
+    .h4 NOTE
 .row
-  .col-md-2 Segnalatore/Agente:
+  .col-md-12.bg-success
+    -@account.description.to_s.split("/r/n").each do |l|
+      %p=l
+.row
+  .col-md-2 SEGNALATORE:
   - if @account.assigned_to
     .col-md-4
       =@account.assigned_to.full_name
@@ -39,7 +41,7 @@
 -else
   .row
     .col-md-12
-      .h4 Contatti
+      .h4 CONTATTI
   %table.table.table-bordered.table-condensed
     %tr.info
       %th="Nome"

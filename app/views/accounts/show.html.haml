@@ -26,12 +26,14 @@
   .col-md-4
     =@account.phone_alternate
 .row
-  .col-md-2
-    .h4 note
-  .col-md-10
-    =raw @account.description.gsub("/r/n","</br>")
+  .col-md-12.bg-success
+    .h4 NOTE
 .row
-  .col-md-2 Segnalatore/Agente:
+  .col-md-12.bg-success
+    -@account.description.to_s.split("/r/n").each do |l|
+      %p=l
+.row
+  .col-md-2 SEGNALATORE:
   - if @account.assigned_to
     .col-md-4
       =@account.assigned_to.full_name
@@ -85,7 +87,7 @@
         %td
           =c.name
         %td
-          =c.status
+          =t("call_status_dom.#{c.status}")
         %td
           =c.assigned_to.full_name if c.assigned_to
       %tr.info
@@ -113,7 +115,7 @@
         %td
           =c.name
         %td
-          =c.status
+          =t("meeting_status_dom.#{c.status}")
         %td
           =c.assigned_to.full_name if c.assigned_to
   
@@ -140,9 +142,9 @@
         %td
           =c.name
         %td
-          =c.sales_stage
+          =t("sales_stage_dom.#{c.sales_stage}")
         %td
-          =c.lead_source
+          =t("lead_source_dom.#{c.lead_source}")
         %td
           =c.assigned_to.full_name if c.assigned_to
 

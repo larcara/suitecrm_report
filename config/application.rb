@@ -16,5 +16,10 @@ module SuitecrmReports
     # -- all .rb files in that directory are automatically loaded.
     config.generators.assets = false
     config.generators.helper = false
-  end
+    # Whitelist locales available for the application
+    I18n.available_locales = [:en, :it  ]
+    #   Set default locale to something other than :en
+    I18n.default_locale = :it 
+
+ end
 end
