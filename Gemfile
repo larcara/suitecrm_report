@@ -57,4 +57,4 @@ gem "haml"
 gem "trestle"
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-
+gem "geocoder"

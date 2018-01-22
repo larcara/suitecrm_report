@@ -1,0 +1,4 @@
+%h1 Mappa
+%img{src: @google_link}
+-@locations.each_with_index do |l,i|
+  %h3="#{@markers[i]} - #{l.name} #{l.jjwg_maps_address_c}"

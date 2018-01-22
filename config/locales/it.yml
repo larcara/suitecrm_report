@@ -1,0 +1,75 @@
+it:
+  industry_dom:
+    Apparel: Tessile
+    Banking: Banca
+    Biotechnology: Biotecnologie
+    Chemicals: Industria Chimica
+    Communications: Comunicazioni
+    Construction: Costruzioni
+    Consulting: Consulenza
+    Education: Istruzione
+    Electronics: Informatica - Elettronica
+    Energy: Energia
+    Engineering: Ingegneria
+    Entertainment: Cultura-Stampa
+    Environmental: Ambiente
+    Finance: Finanza
+    Government: Pubblica Amministratione
+    Healthcare: Sanità
+    Hospitality: Alberghiero
+    Insurance: Assicurazione
+    Machinery: Industria Compon.
+    Manufacturing: Industria Manifatturiera
+    Media: Media
+    NotorProfit: No Profit
+    Recreation: Ricreazione
+    Retail: Commercio Retail
+    Shipping: Trasporti e Logistica
+    Technology: Tecnologico
+    Telecommunications: Telecomunicazioni
+    Transportation: Viaggi e turismo
+    Utilities: Servizi e utility
+    Other: Altro
+    RivenditaEdile: Rivendita edile
+    Ferramenta: Ferramenta
+    Agricola: Agricola
+    PetShop: Pet shop
+    GardernCenter: Garden center
+  lead_source_dom:
+    Cold Call: Chiamata a Freddo
+    Existing Customer: Cliente Esistente
+    Self Generated: Autogenerato
+    Employee: Dipendente
+    Partner: Partner
+    Public Relations: Pubbliche Relazioni
+    Direct Mail: Direct Mailing
+    Conference: Conferenza
+    Trade Show: Fiera
+    Web Site: Sito web
+    Word of mouth: Passaparola
+    Email: Emails
+    Campaign: Campagna
+    Other: Altro
+    Segnalazione: Segnalazione
+    ChiamataCliente: Chiamata cliente
+  call_status_dom:
+    Planned: Pianificata
+    Held: Effettuata
+    Not Held: Non Effettuata
+  meeting_status_dom:
+    Planned: Pianificata
+    Held: Effettuata
+    Not Held: Non Effettuata
+  sales_stage_dom:
+    Prospecting: Prospecting
+    Qualification: Qualificazione
+    Needs Analysis: Analisi Bisogni
+    Value Proposition: Propos. Valore
+    Id. Decision Makers: Identificazione dei decisori
+    Perception Analysis: Analisi Percezione
+    Proposal/Price Quote: Proposta Economica
+    Negotiation/Review: Negoziazione/Review
+    Closed Won: Chiuso Vinto
+    Closed Lost: Chiuso Perso
+
+

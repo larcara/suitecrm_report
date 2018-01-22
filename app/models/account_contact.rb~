@@ -1,5 +1,0 @@
-class AccountContact < SuitecrmRecord
-    self.table_name = "accounts_contacts"
-    belongs_to :accounts
-    belongs_to :contacts
-end

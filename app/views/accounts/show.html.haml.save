@@ -10,13 +10,10 @@
 .row
   .col-md-2
   .col-md-8
-    .h1=link_to(@account.name, "/suitecrm/index.php?module=Accounts&offset=1&stamp=#{Time.now.to_i}000000&return_module=Accounts&action=DetailView&record=#{@account.id}",{target:"_blank"})
+    .h1=@account.name
     .h6=@account.ownership
   .col-md-2
     =link_to("Stampa", account_path(@account, format: :pdf), {target: :blank, class: "button"})
-    %p
-    =link_to("Mappa", google_map_account_path(@account), {target: :blank, class: "button"})
-
 .row
   .col-md-12
     %hr
@@ -90,7 +87,7 @@
         %td
           =c.name
         %td
-          =t("call_status_dom.#{c.status}")
+          =c.status
         %td
           =c.assigned_to.full_name if c.assigned_to
       %tr.info
@@ -118,7 +115,7 @@
         %td
           =c.name
         %td
-          =t("meeting_status_dom.#{c.status}")
+          =c.status
         %td
           =c.assigned_to.full_name if c.assigned_to
   
@@ -145,9 +142,9 @@
         %td
           =c.name
         %td
-          =t("sales_stage_dom.#{c.sales_stage}")
+          =c.sales_stage
         %td
-          =t("lead_source_dom.#{c.lead_source}")
+          =c.lead_source
         %td
           =c.assigned_to.full_name if c.assigned_to
 

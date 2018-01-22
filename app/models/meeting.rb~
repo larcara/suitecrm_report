@@ -1,3 +1,0 @@
-class Meeting < SuitecrmRecord
-    self.table_name = "meetings"
-end
